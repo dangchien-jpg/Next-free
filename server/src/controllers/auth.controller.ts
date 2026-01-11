@@ -75,7 +75,7 @@ export const loginController = async (body: LoginBodyType) => {
     }
   })
   if (!account) {
-    throw new EntityError([{ field: 'email', message: 'Email không tồn tại' }])
+    throw new EntityError([{ field: 'email', message: 'Email hoặc mật khẩu không đúng' }])
   }
   const isPasswordMatch = await comparePassword(body.password, account.password)
   if (!isPasswordMatch) {
